@@ -48,8 +48,16 @@ function calculate(arr) {
 }
 
 function updateDisplay() {
-    display.textContent = array.join('');
+    const operatorMap = {
+        'plus': '+',
+        'minus': '-',
+        'multi': '×',
+        'division': '÷'
+    };
+    const displayText = array.map(item => operatorMap[item] || item).join('');
+    display.textContent = displayText;
 }
+
 
 // Кнопки 1, 2, 3, 4, 5, 6, 7, 8, 9
 document.getElementById("one").addEventListener('click', () => { btnNum(1) })
